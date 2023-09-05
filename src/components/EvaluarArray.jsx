@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, TextInput, ToastAndroid, Button } from 'react-n
 
 const EvaluarArray = () => {
 
-  let arrInicial = [5, 8, 12, 11, 6, 13, 8, 15, 6, 4, 11, 0, 8];
-  const [arrMayores10, setArrMayores10] = useState([]);
+  let arrInicial = [3, 9, 11, 7, 33, 18, 22, 2, 9, 20];
+  const [arrMayor, setArrMayor] = useState([]);
   const [nombre, setNombre] = useState("");
   const [mostrarResultado, setMostrarResultado] = useState(false);
 
@@ -14,7 +14,7 @@ const EvaluarArray = () => {
     //ToastAndroid.show("se cargo la aplicacion corectamente", ToastAndroid.SHORT)
   }, [])
 
-  const validarArrayMayores10 = async () => {
+  const validarArrayMayor = async () => {
 
     /*const response = await fetch("http://10.11.8.75:4000");
     const rta = await response.json();
@@ -38,8 +38,9 @@ const EvaluarArray = () => {
     }
 
     arrInicial.forEach((n) => {
-      if (n > 10) {
-        arrMayores10.push(n)
+      if (n[i] > numMayor) {
+        numMayor = n[i];
+        arrMayor.push(n[i])
       }
     })
 
@@ -61,12 +62,12 @@ const EvaluarArray = () => {
 
   return (
     <View >
-      <Text>VALIDAR ARRAY, MUESTRA CUALES SON MAYORES A 10</Text>
-      <Button onPress={validarArrayMayores10} title="Sumar" color="#FF0000" />
-      {mostrarResultado && (<Text>Los mayores a 10 son {arrMayores10}</Text>)}
+      <Text>VALIDAR ARRAY, MUESTRA CUAL ES EL NUMERO MAYOR</Text>
+      <Button onPress={validarArrayMayor} title="ENCONTRAR" color="#FF0000" />
+      {mostrarResultado && (<Text>El numero mayor es: {arrMayor}</Text>)}
       <Text>{nombre}</Text>
     </View>
   );
 };
 
-export default EvaluarArray
+export default EvaluarArray;
